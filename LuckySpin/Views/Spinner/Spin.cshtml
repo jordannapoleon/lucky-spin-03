@@ -1,5 +1,4 @@
-﻿@model LuckySpin.Models.Spin
-@inject LuckySpin.Models.TextTransform TT
+﻿@inject LuckySpin.Models.TextTransform TT
 @{
 //TODO: Assign the Layout property to "LuckySpinLayout" and notice the difference with and without the Layout property
     Layout = "~/Views/Spinner/LuckySpinLayout.cshtml";
@@ -7,12 +6,12 @@
 }
 
 <button onclick='history.go(0)'>Spin</button>
-@foreach(var number in Model.Numbers){
+@foreach(var number in ViewBag.Numbers){
     <div>@number</div>
 }
 
-<span style="display:@Model.ImageDisplay">
-    <h2> Player wins with the Lucky @TT.numberToText(Model.Luck) </h2>
+<span style="display:@ViewBag.ImageDisplay">
+    <h2> @ViewBag.Name's a winner with the Lucky @TT.numberToText(ViewBag.Luck) </h2>
     <img src="/Images/LuckySpinCoins.jpg" alt="Coins"/>
 </span>
 
